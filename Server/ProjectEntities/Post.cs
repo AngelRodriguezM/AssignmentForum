@@ -3,7 +3,7 @@
 public class Post
 {
     public int Id { get; set; }
-    public int PosterId { get; set; }
+    public int AuthorId { get; set; }
     // public DateTime CreatedAt { get; set; }
 
 
