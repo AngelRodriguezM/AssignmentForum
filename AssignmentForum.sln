@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssignmentForum", "AssignmentForum.csproj", "{2548D43D-2BA4-42E1-AC6F-4F67341A135A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{DC71B97A-11C6-404D-BC7D-ECC6EA910E2B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectEntities", "Server\ProjectEntities\ProjectEntities.csproj", "{10B6CB9A-C9D5-430D-8D20-3A1984DF2635}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,12 @@ Global
 		{2548D43D-2BA4-42E1-AC6F-4F67341A135A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2548D43D-2BA4-42E1-AC6F-4F67341A135A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2548D43D-2BA4-42E1-AC6F-4F67341A135A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10B6CB9A-C9D5-430D-8D20-3A1984DF2635}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10B6CB9A-C9D5-430D-8D20-3A1984DF2635}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10B6CB9A-C9D5-430D-8D20-3A1984DF2635}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10B6CB9A-C9D5-430D-8D20-3A1984DF2635}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{10B6CB9A-C9D5-430D-8D20-3A1984DF2635} = {DC71B97A-11C6-404D-BC7D-ECC6EA910E2B}
 	EndGlobalSection
 EndGlobal
