@@ -6,14 +6,22 @@ namespace InMemoryRepositories;
 public class PostInMemoryRepository : IPostRepository
 {
     public List<Post> Posts = new List<Post>();
-    
-     
-    
+
+    public PostInMemoryRepository()
+    {
+        Posts.AddRange(new[]
+        {
+            new Post { Id = 1, AuthorId = 1, Title = "Welcome post", Body = "This is the first sample post.", Author = new User { Id = 1, Username = "alice", Password = "password1" } },
+            new Post { Id = 2, AuthorId = 2, Title = "Second post", Body = "This is a second sample post.", Author = new User { Id = 2, Username = "bob", Password = "password2" } },
+            new Post { Id = 3, AuthorId = 3, Title = "Third post", Body = "This is the third sample post.", Author = new User { Id = 3, Username = "charlie", Password = "password3" } }
+        });
+    }
+
     public Task<Post> AddAsync(Post post)
     {
-        post.Id = Posts.Any() //first we set the id
-            ? Posts.Max(p => p.Id) + 1 // by finding the current max Id and adding one
-            : 1;// else, just use id =  1 //weird looking if else i dont fully understand yet
+        post.Id = Posts.Any()
+            ? Posts.Max(p => p.Id) + 1
+            : 1;
         Posts.Add(post);
         return Task.FromResult(post);
     }
