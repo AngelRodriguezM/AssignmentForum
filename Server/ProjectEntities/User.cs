@@ -1,15 +1,14 @@
 ﻿namespace ProjectEntities;
 
-public class User
+public class User(int id, string username, string password)
 {
-    // public User(int id, string username, string password)
-    // {
-    //     Id = id;
-    //     Username = username;
-    //     Password = password;
-    // } do i need this rn?
+    
 
     public int Id { get; set; }
     public string Username { get; set; } = "";
     public string Password { get; set; } = "";
+    public override string ToString()
+    {
+        return $"ID : {Id}, Username : {Username}";
+    }
 }

@@ -5,10 +5,12 @@ namespace CLI.UI.ManagePost;
 public class CreatePostView
 {
     private readonly IPostRepository postRepository;
+    private readonly IUserRepository userRepository;
 
-    public CreatePostView(IPostRepository postRepository)
+    public CreatePostView(IPostRepository postRepository, IUserRepository userRepository)
     {
         this.postRepository = postRepository;
+        this.userRepository = userRepository;
     }
 
     public async Task CreatePostAsync()
@@ -33,7 +35,7 @@ public class CreatePostView
             AuthorId = authorId,
             Title = title,
             Body = body,
-            Author = new ProjectEntities.User { Id = authorId }
+            Author = await userRepository.GetByIdAsync(authorId)
         };
 
         var createdPost = await postRepository.AddAsync(post);

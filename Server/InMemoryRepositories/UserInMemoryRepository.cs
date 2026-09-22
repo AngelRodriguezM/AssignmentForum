@@ -9,12 +9,7 @@ public class UserInMemoryRepository : IUserRepository
 
     public UserInMemoryRepository()
     {
-        Users.AddRange(new[]
-        {
-            new User { Id = 1, Username = "alice", Password = "password1" },
-            new User { Id = 2, Username = "bob", Password = "password2" },
-            new User { Id = 3, Username = "charlie", Password = "password3" }
-        });
+        
     }
 
     public Task<User> AddAsync(User user)
@@ -49,12 +44,12 @@ public class UserInMemoryRepository : IUserRepository
         return Task.CompletedTask;
     }
 
-    public Task<User> GetSingleAsync(int id)
+    public Task<User> GetSingleAsync(string username)
     {
-        User? user = Users.SingleOrDefault(u => u.Id == id);
+        User? user = Users.SingleOrDefault(u => u.Username == username);
         if (user is null)
         {
-            throw new InvalidOperationException($"User with ID '{id}' not found");
+            throw new InvalidOperationException($"User with UserName '{username}' not found");
         }
 
         return Task.FromResult(user);
@@ -63,5 +58,10 @@ public class UserInMemoryRepository : IUserRepository
     public IQueryable<User> GetMany()
     {
         return Users.AsQueryable();
+    }
+
+    public Task<User> GetByIdAsync(int authorId)
+    {
+        throw new NotImplementedException();
     }
 }
